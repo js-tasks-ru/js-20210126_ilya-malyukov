@@ -5,5 +5,13 @@
  * @returns {string[]}
  */
 export function sortStrings(arr, param = 'asc') {
-
-}
+    if (param === 'asc') {
+      let newArr = arr.slice()
+      .sort((a, b) => a.localeCompare(b, ['ru', 'en'], { caseFirst: 'upper' }));
+      return newArr;
+    } else if (param === 'desc') {
+       let newArr = arr.slice()
+       .sort((a, b) => a.localeCompare(b, ['ru', 'en'])).reverse();
+       return newArr;   
+    };
+};
